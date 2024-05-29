@@ -1,0 +1,22 @@
+package com.tour_of_heroes.api.shop.domain.core.services;
+
+import com.tour_of_heroes.api.shared.exceptions.InvalidDataException;
+import com.tour_of_heroes.api.shared.exceptions.NotFoundException;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface DomainService<E, K> {
+
+    List<E> getAll();
+
+    Optional<E> getOne(K id);
+
+    E add(E entity) throws InvalidDataException;
+
+    E modify(E entity) throws NotFoundException;
+
+    void delete(E entity);
+
+    void deleteById(K id);
+}
