@@ -5,7 +5,7 @@ import com.tour_of_heroes.api.shop.domain.entities.Product;
 import lombok.Value;
 
 @Value
-public class ProductDTO {
+public class OutProductDTO {
 
     @JsonProperty("id")
     int id;
@@ -19,13 +19,8 @@ public class ProductDTO {
     @JsonProperty("description")
     String description;
 
-    public static ProductDTO from(Product product) {
+    public static OutProductDTO from(Product product) {
 
-        return new ProductDTO(product.getId(), product.getName(), product.getPrice(), product.getDescription());
-    }
-
-    public static Product from(ProductDTO target) {
-
-        return new Product(target.id, target.name, target.description, target.price);
+        return new OutProductDTO(product.getId(), product.getName(), product.getPrice(), product.getDescription());
     }
 }
