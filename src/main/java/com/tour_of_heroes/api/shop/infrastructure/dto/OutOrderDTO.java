@@ -27,7 +27,7 @@ public class OutOrderDTO {
         return new OutOrderDTO(
                 source.getId(),
                 source.getExpeditionDate().toString(),
-                new ArrayList<>(source.getProductOrderList().stream().map(ProductDTO::from).toList())
+                new ArrayList<>(source.getProductOrderList().stream().map(OutProductDTO::from).toList())
         );
     }
 
