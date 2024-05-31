@@ -38,7 +38,11 @@ public class OrderController {
     @Transactional
     public OutOrderDTO createOrder(@Valid @RequestBody InOrderDTO inOrderDTO) throws InvalidDataException {
 
-        return OutOrderDTO.from(orderService.add(InOrderDTO.from(inOrderDTO)));
+        Order order = InOrderDTO.from(inOrderDTO);
+        System.out.println(order);
+        return OutOrderDTO.from(
+                orderService.add(order)
+        );
     }
 
     @GetMapping

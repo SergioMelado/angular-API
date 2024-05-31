@@ -16,12 +16,12 @@ import java.util.List;
 public class InOrderDTO {
 
     @JsonProperty("products")
-    private List<Object> productList = new ArrayList<>();
+    private List<Product> productList = new ArrayList<>();
 
     public static Order from(InOrderDTO source){
 
         Order result = new Order();
-        source.productList.forEach(item -> result.addProduct((Product) item));
+        source.productList.forEach(result::addProduct);
         return result;
     }
 }

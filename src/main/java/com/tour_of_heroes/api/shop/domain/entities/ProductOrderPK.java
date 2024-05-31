@@ -13,4 +13,14 @@ public class ProductOrderPK {
 
     @Column(name = "ORDER_ID")
     private UUID orderId;
+
+    public ProductOrderPK() {
+
+    }
+
+    public ProductOrderPK(int productId, UUID orderId) {
+
+        this.productId = productId;
+        this.orderId = orderId;
+    }
 }

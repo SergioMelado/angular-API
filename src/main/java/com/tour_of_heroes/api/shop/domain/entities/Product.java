@@ -27,7 +27,7 @@ public class Product implements Serializable {
     @Column(name = "DESCRIPTION", length = 50)
     private String description;
 
-    @OneToMany (mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<ProductOrder> productOrderList;
 
     public Product() {
@@ -55,5 +55,15 @@ public class Product implements Serializable {
         if(price != null && !price.equals(target.price)) target.price = price;
         if(!description.equals(target.description)) target.description = description;
         return target;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

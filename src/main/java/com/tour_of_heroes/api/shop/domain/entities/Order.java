@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,7 +24,7 @@ public class Order implements Serializable {
     private Timestamp expeditionDate;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ProductOrder> productOrderList;
+    private List<ProductOrder> productOrderList = new ArrayList<>();
 
     public Order() {
 
@@ -45,5 +46,14 @@ public class Order implements Serializable {
     public Order merge(Order target) {
 
         return target;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", expeditionDate=" + expeditionDate +
+                ", productOrderList=" + getProductOrderList().stream().map(Product::toString).toString() +
+                '}';
     }
 }
