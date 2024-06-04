@@ -1,4 +1,4 @@
-package com.tour_of_heroes.api.shop.domain.core.repositories;
+package com.tour_of_heroes.api.shared.core.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;

@@ -1,4 +1,4 @@
-package com.tour_of_heroes.api.shop.domain.core.services;
+package com.tour_of_heroes.api.shared.core.services;
 
 import com.tour_of_heroes.api.shared.exceptions.InvalidDataException;
 import com.tour_of_heroes.api.shared.exceptions.NotFoundException;

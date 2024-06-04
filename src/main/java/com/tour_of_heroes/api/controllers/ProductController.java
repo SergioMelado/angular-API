@@ -48,6 +48,7 @@ public class ProductController {
     }
 
     @PatchMapping("/{id}")
+    @Transactional
     public OutProductDTO updateProduct(@PathVariable int id, @Valid @RequestBody InProductDTO inProductDTO) throws BadRequestException, NotFoundException {
 
         if(productService.getOne(id).isEmpty()) throw new BadRequestException("Id does not exist");

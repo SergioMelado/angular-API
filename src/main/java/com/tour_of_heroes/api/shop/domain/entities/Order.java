@@ -50,7 +50,7 @@ public class Order implements Serializable {
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "Order {" +
                 "id=" + id +
                 ", expeditionDate=" + expeditionDate +
                 ", productOrderList=" + getProductOrderList().stream().map(Product::toString).toString() +

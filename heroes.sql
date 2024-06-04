@@ -1,0 +1,9 @@
+INSERT INTO heroes VALUES(1, 'Dr.Nice');
+INSERT INTO heroes VALUES(2, 'Bombasto');
+INSERT INTO heroes VALUES(3, 'Celeritas');
+INSERT INTO heroes VALUES(4, 'Magneta');
+INSERT INTO heroes VALUES(5, 'RubberMan');
+INSERT INTO heroes VALUES(6, 'Dynama');
+INSERT INTO heroes VALUES(7, 'Dr.IQ');
+INSERT INTO heroes VALUES(8, 'Magma');
+INSERT INTO heroes VALUES(9, 'Tornado');
