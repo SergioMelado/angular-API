@@ -5,9 +5,9 @@
 --  DDL for Table PRODUCTS
 --------------------------------------------------------
 
-Insert into HR.PRODUCTS (PRODUCT_ID,DESCRIPTION,NAME,PRICE) values ('2','A great phone with one of the best cameras','Phone Mini','699');
-Insert into HR.PRODUCTS (PRODUCT_ID,DESCRIPTION,NAME,PRICE) values ('3',null,'Phone Standard','299');
-Insert into HR.PRODUCTS (PRODUCT_ID,DESCRIPTION,NAME,PRICE) values ('1','A large phone with one of the best screens','Phone XL','799');
+Insert into PRODUCTS (PRODUCT_ID,DESCRIPTION,NAME,PRICE) values ('2','A great phone with one of the best cameras','Phone Mini','699');
+Insert into PRODUCTS (PRODUCT_ID,DESCRIPTION,NAME,PRICE) values ('3',null,'Phone Standard','299');
+Insert into PRODUCTS (PRODUCT_ID,DESCRIPTION,NAME,PRICE) values ('1','A large phone with one of the best screens','Phone XL','799');
 
 --------------------------------------------------------
 --  Constraints for Table PRODUCTS

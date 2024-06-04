@@ -1,15 +1,13 @@
 package com.tour_of_heroes.api.heroes.domain.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "HEROES")
 public class Hero {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private int id;
 
@@ -18,6 +16,10 @@ public class Hero {
 
     public Hero() {
 
+    }
+
+    public Hero(String name) {
+        this.name = name;
     }
 
     public Hero merge(Hero target) {
