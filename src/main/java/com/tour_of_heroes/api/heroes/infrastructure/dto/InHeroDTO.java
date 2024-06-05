@@ -18,4 +18,8 @@ public class InHeroDTO {
 
         return new Hero(source.getName());
     }
+    public static Hero from(int id, InHeroDTO source) {
+
+        return new Hero(id, source.getName());
+    }
 }
