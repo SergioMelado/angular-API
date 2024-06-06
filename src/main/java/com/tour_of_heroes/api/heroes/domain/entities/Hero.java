@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "HEROES")
 public class Hero {
@@ -37,5 +38,4 @@ public class Hero {
         if(name != null && !name.isEmpty() && !name.equals(target.name)) target.name = name;
         return target;
     }
-
 }

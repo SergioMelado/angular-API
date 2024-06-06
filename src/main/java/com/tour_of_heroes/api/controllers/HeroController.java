@@ -52,12 +52,12 @@ public class HeroController {
     @Transactional
     public OutHeroDTO updateHero(@PathVariable int id, @Valid @RequestBody InHeroDTO inHeroDTO) throws NotFoundException, BadRequestException {
 
-        if(heroService.getOne(id).isEmpty()) throw new BadRequestException("ID does not exist");
         return OutHeroDTO.from(heroService.modify(InHeroDTO.from(id, inHeroDTO)));
     }
 
     @DeleteMapping("/{id}")
     @Transactional
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteHero(@PathVariable int id) throws NotFoundException {
 
         if(heroService.getOne(id).isEmpty()) throw new NotFoundException();
