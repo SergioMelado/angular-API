@@ -51,11 +51,11 @@ public class ProductController {
     @Transactional
     public OutProductDTO updateProduct(@PathVariable int id, @Valid @RequestBody InProductDTO inProductDTO) throws BadRequestException, NotFoundException {
 
-        if(productService.getOne(id).isEmpty()) throw new BadRequestException("Id does not exist");
         return OutProductDTO.from(productService.modify(InProductDTO.from(id, inProductDTO)));
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @Transactional
     public void deleteProduct(@PathVariable int id) throws NotFoundException {
 

@@ -57,7 +57,7 @@ public class ProductControllerTest {
 
         when(srv.getOne(anyInt())).thenReturn(Optional.of(product));
 
-        mockMvc.perform(get(urlTemplate + "/{id}", product.getId()))
+        mockMvc.perform(get(urlTemplate + "/{id}", id))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(product.getId()))
                 .andExpect(jsonPath("$.name").value(product.getName()))
@@ -117,7 +117,7 @@ public class ProductControllerTest {
     @Test
     void whenUpdatingProduct_thenControlCorrectFlow() throws Exception {
 
-        int id = 1;
+        int id = 51;
         InProductDTO inProductDTO = new InProductDTO("ProductTest", 150.0, "ProductTestDescription");
         Product product = new Product(id, "ProductTest",100.0, "ProductTestDescription");
         OutProductDTO outProductDTO = OutProductDTO.from(product);
