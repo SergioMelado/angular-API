@@ -1,12 +1,8 @@
 package com.tour_of_heroes.api.apps.shop;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tour_of_heroes.api.controllers.ProductController;
-import com.tour_of_heroes.api.heroes.domain.entities.Hero;
-import com.tour_of_heroes.api.shared.exceptions.NotFoundException;
 import com.tour_of_heroes.api.shop.domain.contracts.services.ProductService;
-import com.tour_of_heroes.api.shop.domain.entities.Order;
 import com.tour_of_heroes.api.shop.domain.entities.Product;
 import com.tour_of_heroes.api.shop.infrastructure.dto.InProductDTO;
 import com.tour_of_heroes.api.shop.infrastructure.dto.OutProductDTO;
@@ -119,15 +115,15 @@ public class ProductControllerTest {
 
         int id = 51;
         InProductDTO inProductDTO = new InProductDTO("ProductTest", 150.0, "ProductTestDescription");
-        Product product = new Product(id, "ProductTest",100.0, "ProductTestDescription");
+        Product product = new Product(id, "ProductTest", 100.0, "ProductTestDescription");
         OutProductDTO outProductDTO = OutProductDTO.from(product);
 
         when(srv.modify(any(Product.class))).thenReturn(product);
 
         mockMvc.perform(patch(urlTemplate + "/{id}", id)
-                .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .accept(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(inProductDTO)))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(inProductDTO)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(outProductDTO.getId()))
                 .andExpect(jsonPath("$.name").value(outProductDTO.getName()))
