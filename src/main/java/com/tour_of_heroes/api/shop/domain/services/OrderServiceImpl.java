@@ -6,6 +6,7 @@ import com.tour_of_heroes.api.shop.domain.contracts.repositories.OrderRepository
 import com.tour_of_heroes.api.shop.domain.contracts.services.OrderService;
 import com.tour_of_heroes.api.shop.domain.entities.Order;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -46,9 +47,10 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void delete(Order item) {
+    public void delete(Order item) throws InvalidDataException {
 
-        if (item != null) dao.delete(item);
+        if (item == null) throw new InvalidDataException(InvalidDataException.CANT_BE_NULL);
+        dao.delete(item);
     }
 
     @Override

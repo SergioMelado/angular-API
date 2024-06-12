@@ -16,7 +16,7 @@ public interface DomainService<E, K> {
 
     E modify(E entity) throws NotFoundException, InvalidDataException;
 
-    void delete(E entity);
+    void delete(E entity) throws InvalidDataException;
 
     void deleteById(K id);
 }

@@ -62,7 +62,7 @@ public class OrderServiceImplTest {
         }
 
         @Test
-        void deleteOrderWhenOrderNotNull() {
+        void deleteOrderWhenOrderNotNull() throws InvalidDataException {
 
             Order order = new Order();
             doNothing().when(repository).delete(order);
@@ -109,15 +109,9 @@ public class OrderServiceImplTest {
         @Test
         void deleteOrderWhenOrderIsNull() {
 
-            orderServiceMock.delete(null);
-            verify(repository, never()).delete(any(Order.class));
-        }
-
-        @Test
-        void deleteOrderByIdWhenIdIsNull() {
-
-            orderServiceMock.deleteById(null);
-            verify(repository, never()).deleteById(any(UUID.class));
+            Order order = null;
+            InvalidDataException exception = assertThrows(InvalidDataException.class, () -> orderServiceMock.delete(order));
+            assertEquals(exception.getMessage(), InvalidDataException.CANT_BE_NULL);
         }
     }
 }

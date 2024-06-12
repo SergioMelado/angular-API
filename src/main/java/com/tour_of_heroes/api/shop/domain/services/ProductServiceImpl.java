@@ -46,9 +46,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void delete(Product item) {
+    public void delete(Product item) throws InvalidDataException {
 
-        if (item != null) dao.delete(item);
+        if (item == null) throw new InvalidDataException(InvalidDataException.CANT_BE_NULL);
+        dao.delete(item);
     }
 
     @Override

@@ -66,7 +66,7 @@ public class ProductServiceImplTest {
         }
 
         @Test
-        void deleteProductWhenProductNotNull() {
+        void deleteProductWhenProductNotNull() throws InvalidDataException {
 
             Product product = new Product();
             doNothing().when(repository).delete(product);
@@ -114,15 +114,9 @@ public class ProductServiceImplTest {
         @Test
         void deleteOrderWhenOrderIsNull() {
 
-            productServiceMock.delete(null);
-            verify(repository, never()).delete(any(Product.class));
-        }
-
-        @Test
-        void deleteOrderByIdWhenIdIsNull() {
-
-            productServiceMock.deleteById(null);
-            verify(repository, never()).deleteById(any(Integer.class));
+            Product product = null;
+            InvalidDataException exception = assertThrows(InvalidDataException.class, () -> productServiceMock.delete(product));
+            assertEquals(exception.getMessage(), InvalidDataException.CANT_BE_NULL);
         }
     }
 }
