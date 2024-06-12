@@ -1,4 +1,4 @@
-package com.tour_of_heroes.api.apps.shop;
+package com.tour_of_heroes.api.apps.shop.infrastructure;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tour_of_heroes.api.controllers.ProductController;

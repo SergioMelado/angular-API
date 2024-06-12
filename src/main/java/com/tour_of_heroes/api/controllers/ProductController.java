@@ -49,7 +49,7 @@ public class ProductController {
 
     @PatchMapping("/{id}")
     @Transactional
-    public OutProductDTO updateProduct(@PathVariable int id, @Valid @RequestBody InProductDTO inProductDTO) throws BadRequestException, NotFoundException {
+    public OutProductDTO updateProduct(@PathVariable int id, @Valid @RequestBody InProductDTO inProductDTO) throws BadRequestException, NotFoundException, InvalidDataException {
 
         return OutProductDTO.from(productService.modify(InProductDTO.from(id, inProductDTO)));
     }

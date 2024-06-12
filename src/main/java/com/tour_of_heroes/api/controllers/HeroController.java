@@ -50,7 +50,7 @@ public class HeroController {
 
     @PatchMapping("/{id}")
     @Transactional
-    public OutHeroDTO updateHero(@PathVariable int id, @Valid @RequestBody InHeroDTO inHeroDTO) throws NotFoundException, BadRequestException {
+    public OutHeroDTO updateHero(@PathVariable int id, @Valid @RequestBody InHeroDTO inHeroDTO) throws NotFoundException, BadRequestException, InvalidDataException {
 
         return OutHeroDTO.from(heroService.modify(InHeroDTO.from(id, inHeroDTO)));
     }

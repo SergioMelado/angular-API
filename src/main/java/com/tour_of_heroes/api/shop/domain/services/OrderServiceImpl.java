@@ -37,10 +37,10 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order modify(Order item) throws NotFoundException {
+    public Order modify(Order item) throws NotFoundException, InvalidDataException {
 
+        if (item == null) throw new InvalidDataException(InvalidDataException.CANT_BE_NULL);
         Optional<Order> order = dao.findById(item.getId());
-
         if(order.isEmpty()) throw new NotFoundException();
         return dao.save(item.merge(order.get()));
     }

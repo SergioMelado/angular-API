@@ -14,7 +14,7 @@ public interface DomainService<E, K> {
 
     E add(E entity) throws InvalidDataException;
 
-    E modify(E entity) throws NotFoundException;
+    E modify(E entity) throws NotFoundException, InvalidDataException;
 
     void delete(E entity);
 
