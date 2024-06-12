@@ -44,8 +44,8 @@ public class OrderServiceImplTest {
         void whenAddOrderSaveOrder_thenReturnOrder() throws InvalidDataException {
 
             Order order = new Order();
-            lenient().when(repository.save(order)).thenReturn(order);
-            lenient().when(orderServiceMock.add(order)).thenReturn(order);
+            when(repository.save(order)).thenReturn(order);
+            when(orderServiceMock.add(order)).thenReturn(order);
             assertEquals(orderServiceMock.add(order), repository.save(order));
         }
 

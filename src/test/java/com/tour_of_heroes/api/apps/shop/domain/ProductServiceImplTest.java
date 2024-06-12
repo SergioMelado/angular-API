@@ -48,8 +48,8 @@ public class ProductServiceImplTest {
         void whenAddProductSaveProduct_thenReturnProduct() throws InvalidDataException {
 
             Product product = new Product(1, "Product", 150.0, "Product Description");
-            lenient().when(repository.save(product)).thenReturn(product);
-            lenient().when(productServiceMock.add(product)).thenReturn(product);
+            when(repository.save(product)).thenReturn(product);
+            when(productServiceMock.add(product)).thenReturn(product);
             assertEquals(productServiceMock.add(product), repository.save(product));
         }
 
