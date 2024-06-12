@@ -37,10 +37,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product modify(Product item) throws NotFoundException {
+    public Product modify(Product item) throws NotFoundException, InvalidDataException {
 
+        if (item == null) throw new InvalidDataException(InvalidDataException.CANT_BE_NULL);
         Optional<Product> product = dao.findById(item.getId());
-
         if(product.isEmpty()) throw new NotFoundException();
         return dao.save(item.merge(product.get()));
     }
