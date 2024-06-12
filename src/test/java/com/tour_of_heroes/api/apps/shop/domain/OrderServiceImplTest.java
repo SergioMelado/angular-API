@@ -119,6 +119,5 @@ public class OrderServiceImplTest {
             orderServiceMock.deleteById(null);
             verify(repository, never()).deleteById(any(UUID.class));
         }
-
     }
 }

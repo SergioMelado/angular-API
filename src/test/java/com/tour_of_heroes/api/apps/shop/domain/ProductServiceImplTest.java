@@ -3,8 +3,6 @@ package com.tour_of_heroes.api.apps.shop.domain;
 import com.tour_of_heroes.api.shared.exceptions.InvalidDataException;
 import com.tour_of_heroes.api.shared.exceptions.NotFoundException;
 import com.tour_of_heroes.api.shop.domain.contracts.repositories.ProductRepository;
-import com.tour_of_heroes.api.shop.domain.contracts.services.ProductService;
-import com.tour_of_heroes.api.shop.domain.entities.Order;
 import com.tour_of_heroes.api.shop.domain.entities.Product;
 import com.tour_of_heroes.api.shop.domain.services.ProductServiceImpl;
 import org.junit.jupiter.api.Nested;
@@ -16,7 +14,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -34,7 +31,7 @@ public class ProductServiceImplTest {
     class OK {
 
         @Test
-        void whenGetAll_thenReturnPorductList() {
+        void whenGetAll_thenReturnProductList() {
 
             List<Product> productList = List.of(
 
