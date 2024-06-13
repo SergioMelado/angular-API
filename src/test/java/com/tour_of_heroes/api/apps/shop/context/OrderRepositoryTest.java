@@ -1,4 +1,4 @@
-package com.tour_of_heroes.api.apps.heroes.context;
+package com.tour_of_heroes.api.apps.shop.context;
 
 import com.tour_of_heroes.api.shop.domain.contracts.repositories.OrderRepository;
 import com.tour_of_heroes.api.shop.domain.contracts.repositories.ProductRepository;

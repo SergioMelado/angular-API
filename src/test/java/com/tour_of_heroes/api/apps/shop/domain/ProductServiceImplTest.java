@@ -45,6 +45,15 @@ public class ProductServiceImplTest {
         }
 
         @Test
+        void whenGetOneById_thenReturnProduct() {
+
+            Product productMockExpected = new Product();
+            when(repository.findById(productMockExpected.getId())).thenReturn(Optional.of(productMockExpected));
+            Optional<Product> productActual = productServiceMock.getOne(productMockExpected.getId());
+            assertSame(productMockExpected, productActual.get());
+        }
+
+        @Test
         void whenAddProductSaveProduct_thenReturnProduct() throws InvalidDataException {
 
             Product product = new Product(1, "Product", 150.0, "Product Description");

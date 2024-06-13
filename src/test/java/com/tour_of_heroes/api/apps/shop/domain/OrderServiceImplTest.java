@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import static net.bytebuddy.matcher.ElementMatchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -38,6 +40,15 @@ public class OrderServiceImplTest {
             when(repository.findAll()).thenReturn(orderList);
             List<Order> orders = orderServiceMock.getAll();
             assertArrayEquals(new List[]{orders}, new List[]{orderList});
+        }
+
+        @Test
+        void whenGetOneById_thenReturnOrder() {
+
+            Order orderMockExpected = new Order();
+            when(repository.findById(orderMockExpected.getId())).thenReturn(Optional.of(orderMockExpected));
+            Optional<Order> orderActual = orderServiceMock.getOne(orderMockExpected.getId());
+            assertSame(orderMockExpected, orderActual.get());
         }
 
         @Test
