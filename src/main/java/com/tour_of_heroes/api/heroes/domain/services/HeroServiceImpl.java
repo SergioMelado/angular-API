@@ -38,18 +38,19 @@ public class HeroServiceImpl implements HeroService {
     }
 
     @Override
-    public Hero modify(Hero item) throws NotFoundException {
+    public Hero modify(Hero item) throws NotFoundException, InvalidDataException {
 
-        Optional<Hero> hero = dao.findById(item.getId());
-
-        if(hero.isEmpty()) throw new NotFoundException();
-        return dao.save(item.merge(hero.get()));
+        if (item == null) throw new InvalidDataException(InvalidDataException.CANT_BE_NULL);
+        Optional<Hero> order = dao.findById(item.getId());
+        if(order.isEmpty()) throw new NotFoundException();
+        return dao.save(item.merge(order.get()));
     }
 
     @Override
-    public void delete(Hero item) {
+    public void delete(Hero item) throws InvalidDataException {
 
-        if(item != null) dao.delete(item);
+        if (item == null) throw new InvalidDataException(InvalidDataException.CANT_BE_NULL);
+        dao.delete(item);
     }
 
     @Override
